@@ -507,8 +507,8 @@ struct VolkDeviceTable
 	PFN_vkWaitSemaphoresKHR vkWaitSemaphoresKHR;
 #endif /* defined(VK_KHR_timeline_semaphore) */
 #if defined(VK_NVX_image_view_handle)
-	PFN_vkGetImageViewAddressNVX vkGetImageViewAddressNVX;
-	PFN_vkGetImageViewHandleNVX vkGetImageViewHandleNVX;
+//	PFN_vkGetImageViewAddressNVX vkGetImageViewAddressNVX;
+//	PFN_vkGetImageViewHandleNVX vkGetImageViewHandleNVX;
 #endif /* defined(VK_NVX_image_view_handle) */
 #if defined(VK_NV_clip_space_w_scaling)
 	PFN_vkCmdSetViewportWScalingNV vkCmdSetViewportWScalingNV;
@@ -1109,8 +1109,8 @@ extern PFN_vkCreateMacOSSurfaceMVK vkCreateMacOSSurfaceMVK;
 extern PFN_vkCreateViSurfaceNN vkCreateViSurfaceNN;
 #endif /* defined(VK_NN_vi_surface) */
 #if defined(VK_NVX_image_view_handle)
-extern PFN_vkGetImageViewAddressNVX vkGetImageViewAddressNVX;
-extern PFN_vkGetImageViewHandleNVX vkGetImageViewHandleNVX;
+//extern PFN_vkGetImageViewAddressNVX vkGetImageViewAddressNVX;
+//extern PFN_vkGetImageViewHandleNVX vkGetImageViewHandleNVX;
 #endif /* defined(VK_NVX_image_view_handle) */
 #if defined(VK_NV_clip_space_w_scaling)
 extern PFN_vkCmdSetViewportWScalingNV vkCmdSetViewportWScalingNV;

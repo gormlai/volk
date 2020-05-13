@@ -710,8 +710,8 @@ static void volkGenLoadDevice(void* context, PFN_vkVoidFunction (*load)(void*, c
 	vkWaitSemaphoresKHR = (PFN_vkWaitSemaphoresKHR)load(context, "vkWaitSemaphoresKHR");
 #endif /* defined(VK_KHR_timeline_semaphore) */
 #if defined(VK_NVX_image_view_handle)
-	vkGetImageViewAddressNVX = (PFN_vkGetImageViewAddressNVX)load(context, "vkGetImageViewAddressNVX");
-	vkGetImageViewHandleNVX = (PFN_vkGetImageViewHandleNVX)load(context, "vkGetImageViewHandleNVX");
+//	vkGetImageViewAddressNVX = (PFN_vkGetImageViewAddressNVX)load(context, "vkGetImageViewAddressNVX");
+//	vkGetImageViewHandleNVX = (PFN_vkGetImageViewHandleNVX)load(context, "vkGetImageViewHandleNVX");
 #endif /* defined(VK_NVX_image_view_handle) */
 #if defined(VK_NV_clip_space_w_scaling)
 	vkCmdSetViewportWScalingNV = (PFN_vkCmdSetViewportWScalingNV)load(context, "vkCmdSetViewportWScalingNV");
@@ -1162,8 +1162,8 @@ static void volkGenLoadDeviceTable(struct VolkDeviceTable* table, void* context,
 	table->vkWaitSemaphoresKHR = (PFN_vkWaitSemaphoresKHR)load(context, "vkWaitSemaphoresKHR");
 #endif /* defined(VK_KHR_timeline_semaphore) */
 #if defined(VK_NVX_image_view_handle)
-	table->vkGetImageViewAddressNVX = (PFN_vkGetImageViewAddressNVX)load(context, "vkGetImageViewAddressNVX");
-	table->vkGetImageViewHandleNVX = (PFN_vkGetImageViewHandleNVX)load(context, "vkGetImageViewHandleNVX");
+//	table->vkGetImageViewAddressNVX = (PFN_vkGetImageViewAddressNVX)load(context, "vkGetImageViewAddressNVX");
+//	table->vkGetImageViewHandleNVX = (PFN_vkGetImageViewHandleNVX)load(context, "vkGetImageViewHandleNVX");
 #endif /* defined(VK_NVX_image_view_handle) */
 #if defined(VK_NV_clip_space_w_scaling)
 	table->vkCmdSetViewportWScalingNV = (PFN_vkCmdSetViewportWScalingNV)load(context, "vkCmdSetViewportWScalingNV");
@@ -1768,8 +1768,8 @@ PFN_vkCreateMacOSSurfaceMVK vkCreateMacOSSurfaceMVK;
 PFN_vkCreateViSurfaceNN vkCreateViSurfaceNN;
 #endif /* defined(VK_NN_vi_surface) */
 #if defined(VK_NVX_image_view_handle)
-PFN_vkGetImageViewAddressNVX vkGetImageViewAddressNVX;
-PFN_vkGetImageViewHandleNVX vkGetImageViewHandleNVX;
+//PFN_vkGetImageViewAddressNVX vkGetImageViewAddressNVX;
+//PFN_vkGetImageViewHandleNVX vkGetImageViewHandleNVX;
 #endif /* defined(VK_NVX_image_view_handle) */
 #if defined(VK_NV_clip_space_w_scaling)
 PFN_vkCmdSetViewportWScalingNV vkCmdSetViewportWScalingNV;
