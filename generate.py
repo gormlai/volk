@@ -34,7 +34,7 @@ def patch_file(path, blocks):
 					block = line
 					result.append(blocks[line.strip()[16:]])
 
-	with open(path, 'w') as file:
+	with open(path, 'w', newline='\n') as file:
 		for line in result:
 			file.write(line)
 
@@ -53,7 +53,7 @@ def defined(key):
 	return 'defined(' + key + ')'
 
 if __name__ == "__main__":
-	specpath = "https://raw.githubusercontent.com/KhronosGroup/Vulkan-Docs/master/xml/vk.xml"
+	specpath = "https://raw.githubusercontent.com/KhronosGroup/Vulkan-Docs/main/xml/vk.xml"
 
 	if len(sys.argv) > 1:
 		specpath = sys.argv[1]

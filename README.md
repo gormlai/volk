@@ -13,7 +13,7 @@ volk is written in C89 and supports Windows, Linux, Android and macOS (via Molte
 There are multiple ways to use volk in your project:
 
 1. You can just add `volk.c` to your build system. Note that the usual preprocessor defines that enable Vulkan's platform-specific functions (VK_USE_PLATFORM_WIN32_KHR, VK_USE_PLATFORM_XLIB_KHR, VK_USE_PLATFORM_MACOS_MVK, etc) must be passed as desired to the compiler when building `volk.c`.
-2. You can use volk in header-only fashion. Include `volk.h` whereever you want to use Vulkan functions. In exactly one source file, define `VOLK_IMPLEMENTATION` before including `volk.h`. Do not build `volk.c` at all in this case. This method of integrating volk makes it possible to set the platform defines mentioned above with arbitrary (preprocessor) logic in your code.
+2. You can use volk in header-only fashion. Include `volk.h` wherever you want to use Vulkan functions. In exactly one source file, define `VOLK_IMPLEMENTATION` before including `volk.h`. Do not build `volk.c` at all in this case. This method of integrating volk makes it possible to set the platform defines mentioned above with arbitrary (preprocessor) logic in your code.
 3. You can use provided CMake files, with the usage detailed below.
 
 ## Basic usage
@@ -43,7 +43,7 @@ This function will load all required Vulkan entrypoints, including all extension
 If you use volk as described in the previous section, all device-related function calls, such as `vkCmdDraw`, will go through Vulkan loader dispatch code.
 This allows you to transparently support multiple VkDevice objects in the same application, but comes at a price of dispatch overhead which can be as high as 7% depending on the driver and application.
 
-To avoid this, you have one of two options:
+To avoid this, you have two options:
 
 1. For applications that use just one VkDevice object, load device-related Vulkan entrypoints directly from the driver with this function:
 
@@ -60,6 +60,8 @@ void volkLoadDeviceTable(struct VolkDeviceTable* table, VkDevice device);
 The second option requires you to change the application code to store one `VolkDeviceTable` per `VkDevice` and call functions from this table instead.
 
 Device entrypoints are loaded using `vkGetDeviceProcAddr`; when no layers are present, this commonly results in most function pointers pointing directly at the driver functions, minimizing the call overhead. When layers are loaded, the entrypoints will point at the implementations in the first applicable layer, so this is compatible with any layers including validation layers.
+
+Since `volkLoadDevice` overwrites some function pointers with device-specific versions, you can choose to use `volkLoadInstanceOnly` instead of `volkLoadInstance`; when using table-based interface this can also help enforce the usage of the function tables as `volkLoadInstanceOnly` will leave device-specific functions as `NULL`.
 
 ## CMake support
 
